@@ -1,9 +1,10 @@
+import { BevelledButton } from "~/components/BevelledButton";
 import { HexFrame } from "~/components/HexFrame";
 
 export default function About() {
   return (
     <section class="relative w-full min-h-screen bg-black text-white px-12 pt-40">
-      <div class="z-10 relative">
+      <div class="z-10 relative flex flex-col items-center">
         <h2 class="text-8xl font-[Matisse_Pro] font-extrabold">ロボット研究会とは？</h2>
         <p class="text-5xl font-[Matisse_Pro] font-extrabold text-center mt-12">
           同志社大学に拠点を置くロボコン団体
@@ -17,6 +18,9 @@ export default function About() {
           <HexFrame title="部員" body="47名" color="#5F00BA" textColor="#fff" />
           <HexFrame title="活動場所" body="京田辺キャンパス" color="#9DF7E5" textColor="#000" />
           <HexFrame title="区分" body="公認団体" color="#5F00BA" textColor="#fff" />
+        </div>
+        <div class="mt-12">
+          <BevelledButton text="活動詳細" />
         </div>
         <div class="absolute top-12 -left-24 -rotate-24 text-white -z-10">
           <svg
