@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Matisse Pro";
+  src: url("/fonts/FOT-MatissePro-EB.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+:root {
+  --font-display: "FOT Matisse Pro", "Hiragino Mincho ProN", serif;
+  --font-body: "Noto Sans JP", sans-serif;
+  --font-latin: "Jost", sans-serif;
+}
+
+html {
+  background: #000;
+}
