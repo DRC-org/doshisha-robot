@@ -30,9 +30,16 @@ export default function Home() {
   return (
     <main class="bg-black text-white">
       <section class="relative w-full h-screen">
-      <div>
-      <h1 class="absolute bottom-20 left-24 text-[4.5rem] font-[Matisse_Pro]"><span class="text-[12rem]">技</span><span class="text-[5rem]">術</span>を<span class="text-[5rem]">極</span>め、<span class="text-[5rem]">挑戦</span>する。</h1>
-      </div>
+        {" "}
+        <div>
+          {" "}
+          <h1 class="absolute bottom-20 left-24 text-[4.5rem] font-[Matisse_Pro]">
+            {" "}
+            <span class="text-[12rem]">技</span>
+            <span class="text-[5rem]">術</span>を<span class="text-[5rem]">極</span>め、
+            <span class="text-[5rem]">挑戦</span>する。
+          </h1>
+        </div>
       </section>
     </main>
   );
