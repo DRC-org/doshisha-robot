@@ -4,7 +4,7 @@ import { HexFrame } from "~/components/HexFrame";
 export default function About() {
   return (
     <section class="relative w-full min-h-screen bg-black text-white px-12 pt-40">
-      <div class="z-10 relative flex flex-col items-center">
+      <div class="z-10 relative">
         <h2 class="text-8xl font-[Matisse_Pro] font-extrabold">ロボット研究会とは？</h2>
         <div class="flex flex-col items-center">
           <p class="text-5xl font-[Matisse_Pro] font-extrabold text-center mt-12">

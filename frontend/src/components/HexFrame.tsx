@@ -1,6 +1,6 @@
 export function HexFrame({ title, body, color, textColor }: { title: string; body: string; color: string; textColor: string }) {
   return (
-    <div class={`relative h-64 w-64 text-[${textColor}]`}>
+    <div class={`relative h-64 w-64`} style={`color: ${textColor}`}>
       <svg
         width="217"
         height="245"
