@@ -3,6 +3,7 @@ import { onCleanup, onMount } from "solid-js";
 export default function Hero() {
   let sectionRef: HTMLElement | undefined;
   let backgroundRef: HTMLImageElement | undefined;
+  let arrowRef: HTMLDivElement | undefined;
 
   onMount(() => {
     let cleanup = () => {};
@@ -30,6 +31,17 @@ export default function Hero() {
             scrub: true,
           },
         });
+
+        if (arrowRef) {
+          gsap.set(arrowRef, { y: -12 });
+          gsap.to(arrowRef, {
+            y: 0,
+            duration: 0.9,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+          });
+        }
       }, sectionRef);
 
       cleanup = () => ctx.revert();
@@ -94,7 +106,7 @@ export default function Hero() {
       </div>
       <div class="absolute bottom-80 right-16 flex items-end gap-4 border-b-2 border-white pl-92">
         <div class="text-3xl font-[Jost] font-medium">READ MORE</div>
-        <div class="pb-1 pr-4">
+        <div ref={arrowRef} class="pb-1 pr-4 will-change-transform">
           <svg
             width="15"
             height="69"
