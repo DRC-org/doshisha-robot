@@ -13,23 +13,12 @@ export default function Hero() {
           <path d="M0 519L1192 0V519H0Z" fill="black" />
         </svg>
       </div>
-      <div class="absolute bottom-0 right-0">
-        <svg
-          width="1368"
-          height="599"
-          viewBox="0 0 1368 599"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 598.5L1368 0V38.5L95 598.5H0Z" fill="black" />
-        </svg>
-      </div>
       <div class="absolute bottom-20 left-24 z-10">
         <div>
-          <h1 class="text-[4.5rem] font-[Matisse_Pro] font-extrabold drop-shadow">
-            <span class="text-[12rem]">技</span>
-            <span class="text-[5rem]">術</span>を<span class="text-[5rem]">極</span>め、
-            <span class="text-[5rem]">挑戦</span>する。
+          <h1 class="text-[6rem] font-[Matisse_Pro] font-extrabold drop-shadow-lg tracking-tight">
+            <span class="text-[20rem]">技</span>
+            <span class="text-[7rem]">術</span>を<span class="text-[7rem]">極</span>め、
+            <span class="text-[7rem]">挑戦</span>する。
           </h1>
         </div>
         <div class="absolute -bottom-32 left-16">
