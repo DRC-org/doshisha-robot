@@ -3,6 +3,7 @@ import { FileRoutes } from "@solidjs/start/router";
 import type { ParentProps } from "solid-js";
 import { Suspense } from "solid-js";
 import Nav from "~/components/Nav";
+import SplashScreen from "~/components/SplashScreen";
 import "./app.css";
 
 function RootLayout(props: ParentProps) {
@@ -10,6 +11,7 @@ function RootLayout(props: ParentProps) {
 
   return (
     <>
+      <SplashScreen enabled={location.pathname === "/"} />
       {location.pathname !== "/" && <Nav />}
       <Suspense>{props.children}</Suspense>
     </>
