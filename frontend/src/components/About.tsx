@@ -6,21 +6,23 @@ export default function About() {
     <section class="relative w-full min-h-screen bg-black text-white px-12 pt-40">
       <div class="z-10 relative flex flex-col items-center">
         <h2 class="text-8xl font-[Matisse_Pro] font-extrabold">ロボット研究会とは？</h2>
-        <p class="text-5xl font-[Matisse_Pro] font-extrabold text-center mt-12">
-          同志社大学に拠点を置くロボコン団体
-        </p>
-        <p class="text-xl font-[Noto_Sans_JP] mt-6 text-center w-160 mx-auto">
-          同志社ロボット研究会は、同志社大学公認の、ロボット製作サークルです。
-          全国で開催されるロボコンで優勝することを目標に、機械工作、電子工作、プログラミングに日々勤しんでいます。
-        </p>
-        <div class="flex justify-center gap-12 mt-12">
-          <HexFrame title="創部" body="西暦2002年" color="#5F00BA" textColor="#fff" />
-          <HexFrame title="部員" body="47名" color="#5F00BA" textColor="#fff" />
-          <HexFrame title="活動場所" body="京田辺キャンパス" color="#9DF7E5" textColor="#000" />
-          <HexFrame title="区分" body="公認団体" color="#5F00BA" textColor="#fff" />
-        </div>
-        <div class="mt-12">
-          <BevelledButton text="活動詳細" />
+        <div class="flex flex-col items-center">
+          <p class="text-5xl font-[Matisse_Pro] font-extrabold text-center mt-12">
+            同志社大学に拠点を置くロボコン団体
+          </p>
+          <p class="text-xl font-[Noto_Sans_JP] mt-6 text-center w-160">
+            同志社ロボット研究会は、同志社大学公認の、ロボット製作サークルです。
+            全国で開催されるロボコンで優勝することを目標に、機械工作、電子工作、プログラミングに日々勤しんでいます。
+          </p>
+          <div class="flex justify-center gap-12 mt-12 text-center">
+            <HexFrame title="創部" body="西暦2002年" color="#5F00BA" textColor="#fff" />
+            <HexFrame title="部員" body="47名" color="#5F00BA" textColor="#fff" />
+            <HexFrame title="活動場所" body="京田辺キャンパス" color="#9DF7E5" textColor="#000" />
+            <HexFrame title="区分" body="公認団体" color="#5F00BA" textColor="#fff" />
+          </div>
+          <div class="mt-12">
+            <BevelledButton text="活動詳細" />
+          </div>
         </div>
         <div class="absolute top-12 -left-24 -rotate-24 text-white -z-10">
           <svg

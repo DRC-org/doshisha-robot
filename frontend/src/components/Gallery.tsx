@@ -1,15 +1,8 @@
-import { For } from "solid-js";
-
 export default function Gallery() {
-  const images = Array.from(
-    { length: 15 },
-    (_, i) => `/images/tiles/image${String(i + 1).padStart(2, "0")}.png`,
-  );
-
   return (
     <section>
       <div class="w-full h-32 bg-black"></div>
-      <div class="relative w-full min-h-screen">
+      <div class="relative w-full">
         <div class="absolute top-0 left-0 w-full">
           <svg
             width="1440"
@@ -23,17 +16,18 @@ export default function Gallery() {
           </svg>
         </div>
 
-        <div class="flex justify-center w-full">
-          <div class="grid grid-cols-5 w-full">
-            <For each={images}>
-              {(src, index) => (
-                <div>
-                  <img src={src} alt={`Tile ${index() + 1}`} class="block w-full" loading="lazy" />
-                </div>
-              )}
-            </For>
-          </div>
-        </div>
+        <video
+          class="w-full h-[50vh] object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="/images/catchrobo_2025_0.png"
+        >
+          <source src="/videos/hero-video.webm" type="video/webm" />
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
 
         <div class="absolute -bottom-1 left-0 w-full">
           <svg
@@ -48,7 +42,6 @@ export default function Gallery() {
           </svg>
         </div>
       </div>
-      <div class="w-full bg-black"></div>
     </section>
   );
 }
