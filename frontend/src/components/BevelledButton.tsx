@@ -29,12 +29,12 @@ export function BevelledButton(props: BevelledButtonProps) {
         }}
       ></div>
 
-      <div class="relative z-10 flex items-center justify-end w-full h-full">
-        <span class="absolute left-1/2 top-1/2 translate-x-[calc(-50%-8px)] -translate-y-1/2 whitespace-nowrap">
+      <div class="relative w-full h-full flex items-center justify-between gap-4">
+        <span class="whitespace-nowrap flex-1 text-center pl-8">
           {local.text}
         </span>
         <svg
-          class="shrink-0"
+          class="shrink-0 relative -left-4"
           width="66"
           height="16"
           viewBox="355 20 66 16"

@@ -1,7 +1,7 @@
 export default function Gallery() {
   return (
     <section>
-      <div class="w-full h-32 bg-black"></div>
+      <div class="w-full h-48 bg-black"></div>
       <div class="relative w-full">
         <div class="absolute top-0 left-0 w-full">
           <svg

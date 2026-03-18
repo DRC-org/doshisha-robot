@@ -1,6 +1,9 @@
 import About from "~/components/About";
+import Footer from "~/components/Footer";
 import Gallery from "~/components/Gallery";
 import Hero from "~/components/Hero";
+import JoinUs from "~/components/JoinUs";
+import Officials from "~/components/Officials";
 
 const tiles = Array.from({ length: 15 }, (_, index) => ({
   src: `/images/tiles/image${String(index + 1).padStart(2, "0")}.png`,
@@ -36,6 +39,9 @@ export default function Home() {
       <Hero />
       <Gallery />
       <About />
+      <JoinUs />
+      <Officials />
+      <Footer />
     </main>
   );
 }
