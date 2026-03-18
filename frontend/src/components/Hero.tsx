@@ -1,19 +1,57 @@
+import { onCleanup, onMount } from "solid-js";
+
 export default function Hero() {
+  let sectionRef: HTMLElement | undefined;
+  let backgroundRef: HTMLImageElement | undefined;
+
+  onMount(() => {
+    let cleanup = () => {};
+
+    void (async () => {
+      if (!sectionRef || !backgroundRef) return;
+
+      const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const ctx = gsap.context(() => {
+        gsap.set(backgroundRef, { y: 0 });
+
+        gsap.to(backgroundRef, {
+          y: 720,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }, sectionRef);
+
+      cleanup = () => ctx.revert();
+    })();
+
+    onCleanup(() => {
+      cleanup();
+    });
+  });
+
   return (
-    <section class="relative w-full min-h-screen text-white">
-      <div class="absolute top-0 left-0 w-full h-full bg-[url(/images/catchrobo_2025_0.png)] bg-cover"></div>
-      <div class="absolute bottom-0 right-0">
-        <svg
-          width="1192"
-          height="519"
-          viewBox="0 0 1192 519"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 519L1192 0V519H0Z" fill="black" />
-        </svg>
+    <section ref={sectionRef} class="relative w-full min-h-[120vh] overflow-hidden text-white z-1">
+      <div class="absolute inset-0 overflow-hidden">
+        <img
+          ref={backgroundRef}
+          src="/images/catchrobo_2025_0.png"
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-x-0 -top-18 h-[calc(100%+9rem)] w-full max-w-none object-cover will-change-transform"
+        />
       </div>
-      <div class="absolute bottom-20 left-24 z-10">
+      <div class="absolute bottom-80 left-24 z-10">
         <div>
           <h1 class="text-[6rem] font-[Matisse_Pro] font-extrabold drop-shadow-lg tracking-tight">
             <span class="text-[20rem]">技</span>
@@ -37,8 +75,24 @@ export default function Hero() {
           </svg>
         </div>
       </div>
-      <div class="absolute bottom-0 left-0 w-full h-32 bg-linear-to-b from-transparent to-black"></div>
-      <div class="absolute bottom-12 right-16 flex items-end gap-4 border-b-2 border-white pl-92">
+      <div class="absolute bottom-0 left-0 w-full">
+        <div class="relative">
+          <div class="absolute bottom-0 left-0 w-full h-32 bg-linear-to-b from-transparent to-black"></div>
+          <div class="absolute bottom-0 right-0">
+            <svg
+              width="1192"
+              height="519"
+              viewBox="0 0 1192 519"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 519L1192 0V519H0Z" fill="black" />
+            </svg>
+          </div>
+        </div>
+        <div class="w-full h-64 bg-black"></div>
+      </div>
+      <div class="absolute bottom-80 right-16 flex items-end gap-4 border-b-2 border-white pl-92">
         <div class="text-3xl font-[Jost] font-medium">READ MORE</div>
         <div class="pb-1 pr-4">
           <svg
