@@ -43,7 +43,7 @@ export default function Gallery() {
   return (
     <section ref={sectionRef}>
       <div class="relative w-full overflow-hidden">
-        <div class="absolute top-0 left-0 w-full">
+        <div class="absolute top-0 left-0 w-full z-10">
           <svg
             width="1440"
             height="85"
@@ -56,7 +56,7 @@ export default function Gallery() {
           </svg>
         </div>
 
-        <div class="h-[50vh] overflow-hidden">
+        <div class="h-[50vh] overflow-hidden relative z-0">
           <video
             ref={videoRef}
             class="h-[calc(50vh+6rem)] w-full object-cover will-change-transform"
@@ -72,7 +72,7 @@ export default function Gallery() {
           </video>
         </div>
 
-        <div class="absolute -bottom-1 left-0 w-full">
+        <div class="absolute -bottom-1 left-0 w-full z-10">
           <svg
             width="1440"
             height="90"

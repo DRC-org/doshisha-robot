@@ -1,12 +1,41 @@
-import { For } from "solid-js";
+import { For, onCleanup, onMount } from "solid-js";
 import { BevelledButton } from "~/components/BevelledButton";
 
 export default function JoinUs() {
-  const temp_images = Array.from(
+  let trackRef: HTMLDivElement | undefined;
+
+  const images = Array.from(
     { length: 15 },
     (_, i) => `/images/tiles/image${String(i + 1).padStart(2, "0")}.png`,
   );
-  const images = [...temp_images, ...temp_images];
+  const panelImages = [...images, ...images];
+
+  onMount(() => {
+    let cleanup = () => {};
+
+    void (async () => {
+      if (!trackRef) return;
+
+      const { gsap } = await import("gsap");
+
+      const ctx = gsap.context(() => {
+        gsap.set(trackRef, { xPercent: 0 });
+        gsap.to(trackRef, {
+          xPercent: -50,
+          duration: 28,
+          ease: "none",
+          repeat: -1,
+        });
+      }, trackRef);
+
+      cleanup = () => ctx.revert();
+    })();
+
+    onCleanup(() => {
+      cleanup();
+    });
+  });
+
   return (
     <section class="relative overflow-hidden px-12 py-60">
       <div class="w-full absolute top-0 left-0">
@@ -22,11 +51,17 @@ export default function JoinUs() {
         </svg>
       </div>
       <div class="w-full h-screen absolute top-0 left-0 -z-10 brightness-50">
-        <div class="grid grid-cols-5 w-full">
-          <For each={images}>
-            {(src, index) => (
-              <div>
-                <img src={src} alt={`Tile ${index() + 1}`} class="block w-full" loading="lazy" />
+        <div ref={trackRef} class="flex w-[200vw] will-change-transform">
+          <For each={[0, 1]}>
+            {() => (
+              <div class="grid w-screen shrink-0 grid-cols-5">
+                <For each={panelImages}>
+                  {(src, index) => (
+                    <div>
+                      <img src={src} alt={`Tile ${index() + 1}`} class="block w-full" loading="lazy" />
+                    </div>
+                  )}
+                </For>
               </div>
             )}
           </For>
